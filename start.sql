@@ -1,0 +1,3 @@
+
+CREATE SUPERUSER daniel WITH PASSWORD 'hello'
+
