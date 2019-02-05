@@ -10,7 +10,7 @@ services:
       - .:/django-docker
     restart: always
     ports:
-      - "192.168.0.43:8000:8000"
+      - "8000:8000"
     depends_on:
       - postgresdb
   postgresdb:
@@ -20,7 +20,7 @@ services:
       dockerfile: Dockerfile-postgres
     restart: always
     ports:
-      - '192.168.0.43:5432:5432'
+      - '5432:5432'
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     environment:
