@@ -1,0 +1,6 @@
+FROM timescale/timescaledb-postgis
+
+RUN psql -c "CREATE SUPERUSER daniel WITH PASSWORD 'hello' ;"
+
+
+EXPOSE 5432 
