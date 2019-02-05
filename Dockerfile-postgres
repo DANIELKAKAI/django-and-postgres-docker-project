@@ -1,5 +1,8 @@
 FROM timescale/timescaledb-postgis
 
+ENV PG_DB_PASS password
+
+
 COPY start.sql /docker-entrypoint-initdb.d/
 
 
