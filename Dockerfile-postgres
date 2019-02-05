@@ -1,6 +1,12 @@
 FROM timescale/timescaledb-postgis
 
+USER postgres
+ 
+RUN /etc/init.d/postgresql start
+
 RUN psql -c "CREATE SUPERUSER daniel WITH PASSWORD 'hello' ;"
+
+RUN createdb -O daniel my my_database
 
 
 EXPOSE 5432 
