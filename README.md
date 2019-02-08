@@ -25,7 +25,6 @@ ENV PYTHONUNBUFFERED 1
 
 ENV PG_DB_PASS password
 
-
 RUN mkdir /django-docker
 
 WORKDIR /django-docker
@@ -35,13 +34,6 @@ ADD requirements.txt /django-docker/
 RUN pip install -r requirements.txt
 
 ADD . /django-docker/
-
-EXPOSE 8000
-
-RUN python manage.py makemigrations 
-RUN python manage.py migrate
-RUN python manage.py runserver 0.0.0.0:8000
-
 
 ```
 
@@ -56,6 +48,10 @@ services:
     build:
       context: .
       dockerfile: Dockerfile-django
+    commands:
+      - python manage.py makemigrations
+      - python manage.py migrate
+      - python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/django-docker
     restart: always
