@@ -48,6 +48,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile-django
+    environment:
+      - PG_DB_PASS=password
     commands:
       - python manage.py makemigrations
       - python manage.py migrate
